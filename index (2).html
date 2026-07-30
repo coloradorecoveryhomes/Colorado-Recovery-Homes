@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorado Recovery Homes LLC | Outpatient Recovery Program</title>
+<meta name="description" content="Colorado Recovery Homes provides an outpatient recovery program in Colorado Springs and Monument, CO, with affordable temporary rooms available to rent — supporting your independence as you rebuild your life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine-950:#141F1B;
+    --pine-900:#1C2E29;
+    --pine-800:#2D4A43;
+    --pine-700:#3B5C54;
+    --sage-500:#7A8B7F;
+    --sage-300:#AEB9AC;
+    --gold-300:#F0C878;
+    --gold-500:#D9A441;
+    --gold-700:#B5822B;
+    --cream-50:#FBF8F2;
+    --stone-100:#F1ECE1;
+    --stone-200:#E6DFCF;
+    --ink-900:#22302B;
+    --white:#FFFFFF;
+
+    --shadow-sm: 0 2px 10px rgba(20,31,27,0.07);
+    --shadow-md: 0 14px 40px rgba(20,31,27,0.14);
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 30px;
+
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --container: 1180px;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top: 90px; }
+  body{
+    margin:0;
+    font-family: var(--font-body);
+    color: var(--ink-900);
+    background: var(--cream-50);
+    line-height:1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  h1,h2,h3{ font-family: var(--font-display); margin:0; line-height:1.12; font-weight:600; }
+  p{ margin:0; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  .container{ max-width: var(--container); margin:0 auto; padding:0 1.5rem; }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2.5px solid var(--gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .skip-link{
+    position:absolute; left:1rem; top:-60px;
+    background:var(--gold-500); color:var(--pine-950);
+    padding:.7rem 1.1rem; border-radius: var(--radius-sm);
+    font-weight:600; z-index:200; transition: top .2s ease;
+  }
+  .skip-link:focus{ top: 1rem; }
+
+  .eyebrow{
+    display:inline-block;
+    font-family: var(--font-body);
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color: var(--gold-700);
+    margin-bottom: .9rem;
+  }
+  .section-dark .eyebrow{ color: var(--gold-300); }
+
+  .section{ padding: 5.5rem 0; }
+  @media (max-width: 640px){ .section{ padding: 3.75rem 0; } }
+  .section-dark{ background: var(--pine-900); color: var(--cream-50); }
+  .section-stone{ background: var(--stone-100); }
+
+  .section-head{ max-width: 640px; margin-bottom: 3rem; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .section-head h2{ font-size: clamp(1.7rem, 3.2vw, 2.5rem); }
+  .section-head p{ margin-top: 1rem; color: var(--sage-500); font-size:1.05rem; }
+  .section-dark .section-head p{ color: var(--sage-300); }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding: .9rem 1.7rem;
+    border-radius: 999px;
+    font-weight:600;
+    font-size:.98rem;
+    border:1.5px solid transparent;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-primary{ background: var(--gold-500); color: var(--pine-950); }
+  .btn-primary:hover{ background: var(--gold-300); }
+  .btn-row{ display:flex; flex-wrap:wrap; gap: 1rem; }
+
+  /* ================= NAV ================= */
+  .site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding: 1.1rem 0;
+    background: transparent;
+    color: var(--cream-50);
+    transition: background .25s ease, box-shadow .25s ease, padding .25s ease;
+  }
+  .site-nav.scrolled{
+    background: rgba(251,248,242,.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    color: var(--ink-900);
+    padding: .75rem 0;
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+  .brand{ display:flex; align-items:center; gap:.65rem; font-family:var(--font-body); }
+  .brand-mark{ width:38px; height:38px; flex-shrink:0; }
+  .brand-word{ font-weight:700; font-size:.95rem; letter-spacing:.03em; line-height:1.15; }
+  .brand-word small{ display:block; font-weight:500; font-size:.62rem; letter-spacing:.14em; color: var(--gold-500); }
+
+  .nav-links{
+    display:flex; align-items:center; gap:2rem;
+    font-size:.92rem; font-weight:500;
+  }
+  .nav-links a{ opacity:.92; transition: opacity .15s ease; }
+  .nav-links a:hover{ opacity:1; text-decoration:underline; text-underline-offset:4px; }
+  .nav-cta{ display:flex; align-items:center; gap:1rem; }
+  .nav-toggle{
+    display:none; background:none; border:none; color:inherit;
+    width:38px; height:38px; padding:0; position:relative;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:''; position:absolute; left:8px; right:8px; height:2px; background:currentColor; border-radius:2px;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle span{ top:18px; }
+  .nav-toggle span::before{ top:-8px; }
+  .nav-toggle span::after{ top:8px; }
+  .nav-toggle.is-active span{ background:transparent; }
+  .nav-toggle.is-active span::before{ transform: translateY(8px) rotate(45deg); }
+  .nav-toggle.is-active span::after{ transform: translateY(-8px) rotate(-45deg); }
+
+  @media (max-width: 860px){
+    .nav-toggle{ display:block; }
+    .nav-links{
+      position:fixed; inset: 64px 0 0 0; height:calc(100vh - 64px);
+      background: var(--cream-50); color: var(--ink-900);
+      flex-direction:column; align-items:flex-start; justify-content:flex-start;
+      padding: 2rem 1.5rem; gap: 1.5rem; font-size:1.15rem;
+      transform: translateX(100%); visibility:hidden;
+      transition: transform .28s ease, visibility 0s linear .28s;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-links.open{ transform: translateX(0); visibility:visible; transition: transform .28s ease; }
+    .nav-links a{ opacity:1; }
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;
+    min-height: 92vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding-top: 7rem; padding-bottom: 0;
+    background: linear-gradient(180deg, #141F1B 0%, #1C2E29 42%, #2D4A43 72%, #4A3B24 100%);
+    color: var(--cream-50);
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero-inner{ position:relative; z-index:3; padding-bottom: 15vh; }
+  .hero-eyebrow{ color: var(--gold-300); }
+  .hero h1{
+    font-size: clamp(2.2rem, 5.4vw, 4rem);
+    max-width: 15ch;
+    font-weight:600;
+  }
+  .hero-sub{
+    margin-top:1.5rem; max-width:46ch; font-size:1.15rem; color: var(--stone-200);
+  }
+  .hero .btn-row{ margin-top: 2.5rem; }
+
+  .hero-scape{ position:absolute; left:0; right:0; bottom:0; width:100%; z-index:1; pointer-events:none; }
+  .glow-pulse{ animation: glow-pulse 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes glow-pulse{
+    0%,100%{ opacity:.4; }
+    50%{ opacity:.7; }
+  }
+
+  /* ================= MISSION STRIP ================= */
+  .mission{ padding: 4.5rem 0; text-align:center; }
+  .mission .eyebrow{ }
+  .mission p{
+    font-family: var(--font-display); font-weight:400; font-style:italic;
+    font-size: clamp(1.2rem, 2.4vw, 1.55rem); line-height:1.5; color: var(--pine-800);
+    max-width: 46ch; margin: 0 auto;
+  }
+  .mission-rule{ width:64px; height:3px; background:var(--gold-500); margin: 1.6rem auto 0; border-radius:2px; }
+
+  /* ================= JOURNEY ================= */
+  .journey-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.2rem 1.75rem;
+  }
+  .step-num{
+    display:block; font-family: var(--font-display); font-size:2.6rem; font-weight:600;
+    color: var(--gold-500); opacity:.55; margin-bottom:.4rem;
+  }
+  .step h3{ font-size:1.15rem; margin-bottom:.55rem; color: var(--pine-800); }
+  .step p{ color: var(--sage-500); font-size:.98rem; }
+
+  /* ================= PROGRAMS ================= */
+  .card-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.75rem;
+  }
+  .prog-card{
+    background: var(--white); border-radius: var(--radius-md);
+    padding: 2rem 1.75rem; box-shadow: var(--shadow-sm);
+    border: 1px solid var(--stone-200);
+  }
+  .prog-icon{
+    width:46px; height:46px; border-radius:50%; background: var(--stone-100);
+    display:flex; align-items:center; justify-content:center; color: var(--pine-800);
+    margin-bottom:1.25rem;
+  }
+  .prog-icon svg{ width:24px; height:24px; }
+  .prog-card h3{ font-size:1.12rem; margin-bottom:.6rem; color:var(--pine-800); }
+  .prog-card p{ color: var(--sage-500); font-size:.96rem; }
+
+  /* ================= HOMES ================= */
+  .home-card{
+    background: var(--white); border-radius: var(--radius-md); overflow:hidden;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--stone-200);
+  }
+  .home-photo{
+    position:relative; height:170px;
+    background: linear-gradient(160deg, var(--pine-800), var(--pine-950));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .home-photo svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .home-photo span{
+    position:relative; z-index:2; color: rgba(251,248,242,.85); font-size:.82rem;
+    font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    background: rgba(20,31,27,.35); padding:.4rem .8rem; border-radius:999px;
+    border:1px solid rgba(251,248,242,.35);
+  }
+  .home-body{ padding: 1.6rem 1.6rem 1.8rem; }
+  .home-body h3{ font-size:1.15rem; color: var(--pine-800); margin-bottom:.4rem; }
+  .home-body p{ color: var(--sage-500); font-size:.95rem; margin-bottom:1rem; }
+  .home-card-more{
+    display:block; text-decoration:none; color:inherit;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .home-card-more:hover{ transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .more-plus{ font-family: var(--font-display); font-size:3.2rem; font-weight:400; line-height:1; color: var(--gold-300); }
+
+  /* ================= WHY CHOOSE US ================= */
+  .why-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 2.25rem;
+  }
+  .why-item .prog-icon{ background: rgba(251,248,242,.08); color: var(--gold-300); }
+  .why-item h3{ color: var(--cream-50); font-size:1.08rem; margin-bottom:.5rem; }
+  .why-item p{ color: var(--sage-300); font-size:.95rem; }
+
+  /* ================= STAFF DIRECTORY ================= */
+  .team-card{
+    background: var(--white); border-radius: var(--radius-md);
+    padding: 2rem 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--stone-200);
+    text-align:center;
+  }
+  .team-avatar{
+    width:72px; height:72px; border-radius:50%; background: var(--stone-100);
+    color: var(--sage-500); display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 1.1rem;
+  }
+  .team-avatar svg{ width:32px; height:32px; }
+  .team-card p{ color: var(--sage-500); font-size:.85rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
+
+  /* ================= ADMISSIONS / CTA ================= */
+  .cta-band{ text-align:center; }
+  .cta-band .section-head{ margin-bottom:2rem; }
+  .cta-band .btn-row{ justify-content:center; }
+
+  /* ================= PRIVACY NOTICE ================= */
+  .privacy-doc{ max-width: 720px; margin: 0 auto; text-align:left; }
+  .privacy-date{ color: var(--sage-500); font-size:.95rem; margin-bottom:2rem; }
+  .privacy-required{
+    background: var(--white); border-left: 4px solid var(--gold-500);
+    padding: 1.1rem 1.3rem; border-radius: 4px; font-weight:600;
+    margin-bottom: 2.5rem; line-height:1.6; color: var(--ink-900);
+  }
+  .privacy-doc h3{
+    font-family: var(--font-display); font-size:1.2rem; color: var(--pine-800);
+    margin: 2.2rem 0 .8rem; font-weight:600;
+  }
+  .privacy-doc p{ margin: 0 0 1rem; color: var(--ink-900); font-size:1rem; }
+  .privacy-doc ul{ margin: 0 0 1rem; padding-left: 1.3rem; }
+  .privacy-doc li{ margin-bottom:.5rem; color: var(--ink-900); }
+  .privacy-contact{
+    background: var(--white); border: 1px solid var(--stone-200);
+    border-radius: var(--radius-sm); padding: 1.25rem 1.4rem; margin: 1rem 0 1.5rem;
+  }
+  .privacy-contact p{ margin: 0 0 .3rem; }
+
+  /* ================= FOOTER ================= */
+  .site-footer{ background: var(--pine-950); color: var(--stone-200); padding: 4.5rem 0 2rem; }
+  .footer-grid{
+    display:grid; grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr; gap: 2.5rem;
+    padding-bottom: 3rem; border-bottom: 1px solid rgba(251,248,242,.12);
+  }
+  @media (max-width: 860px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .footer-grid{ grid-template-columns: 1fr; } }
+  .footer-brand .brand-word{ color: var(--cream-50); }
+  .footer-tagline{ margin-top:1rem; font-size:.92rem; color: var(--sage-300); max-width:32ch; }
+  .footer h4{ color: var(--cream-50); font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:1.1rem; font-weight:600; }
+  .footer-links li{ margin-bottom:.7rem; font-size:.94rem; }
+  .footer-links a:hover{ text-decoration:underline; text-underline-offset:3px; }
+  .footer-contact li{ margin-bottom:.85rem; font-size:.94rem; }
+  .crisis-box{
+    font-size:.88rem; line-height:1.6; color: var(--stone-200);
+    background: rgba(251,248,242,.06); border:1px solid rgba(251,248,242,.14);
+    border-radius: var(--radius-sm); padding: 1rem 1.1rem;
+  }
+  .crisis-box strong{ color: var(--gold-300); }
+  .footer-bottom{
+    display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; justify-content:space-between;
+    padding-top: 1.6rem; font-size:.82rem; color: var(--sage-300);
+  }
+
+  /* ================= REVEAL ANIMATION ================= */
+  [data-reveal]{ opacity:0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  [data-reveal].is-visible{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    [data-reveal]{ transition:none; opacity:1; transform:none; }
+    .glow-pulse{ animation:none; }
+    .btn{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="Colorado Recovery Homes, home">
+      <svg class="brand-mark" viewBox="0 0 500 500" role="img" aria-label="Colorado Recovery Homes mark">
+        <g transform="translate(250,250)">
+          <circle r="205" fill="none" stroke="currentColor" stroke-width="14"/>
+          <circle cy="-55" r="52" fill="#D9A441"/>
+          <path d="M -160,120 L -80,-40 L 0,30 L 80,-60 L 160,120 Z" fill="currentColor"/>
+        </g>
+      </svg>
+      <span class="brand-word">COLORADO RECOVERY HOMES<small>Outpatient Recovery Program</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#journey">The Journey</a>
+      <a href="#programs">Programs</a>
+      <a href="#homes">Our Homes</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="mailto:coloradorecoveryhomesllc@gmail.com" class="btn btn-primary">Email Us</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <p class="eyebrow hero-eyebrow">Colorado Recovery Homes · Outpatient Program</p>
+      <h1>Every sunrise is a chance to begin again.</h1>
+      <p class="hero-sub">An outpatient recovery program in Colorado Springs and Monument, with affordable temporary rooms available to rent — supporting your independence as you rebuild stability and connection, one day at a time.</p>
+      <div class="btn-row">
+        <a href="mailto:coloradorecoveryhomesllc@gmail.com" class="btn btn-primary">Email Us</a>
+      </div>
+    </div>
+
+    <svg class="hero-scape" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <filter id="glowBlur" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="22"/>
+        </filter>
+      </defs>
+      <!-- soft ambient glow, locked to the sun's own coordinates -->
+      <circle class="glow-pulse" cx="620" cy="330" r="170" fill="#F0C878" filter="url(#glowBlur)"/>
+      <!-- back ridge -->
+      <path d="M0,480 L0,360 L140,300 L260,350 L400,260 L540,330 L680,240 L820,320 L960,250 L1100,330 L1240,270 L1380,340 L1440,300 L1440,480 Z" fill="#3B5C54" opacity=".55"/>
+      <!-- sun -->
+      <circle cx="620" cy="330" r="112" fill="#D9A441"/>
+      <g stroke="#F0C878" stroke-width="4" stroke-linecap="round" opacity=".8">
+        <line x1="620" y1="178" x2="620" y2="150"/>
+        <line x1="742" y1="222" x2="762" y2="200"/>
+        <line x1="498" y1="222" x2="478" y2="200"/>
+      </g>
+      <!-- front ridge with valley for sunrise -->
+      <path d="M0,480 L0,410 L180,320 L340,400 L480,300 L560,400 L700,300 L840,395 L980,310 L1140,405 L1300,330 L1440,410 L1440,480 Z" fill="#141F1B"/>
+    </svg>
+  </section>
+
+  <!-- ================= MISSION ================= -->
+  <section class="mission container" data-reveal>
+    <p class="eyebrow">Our Mission</p>
+    <p>We believe recovery isn't something you do alone. Colorado Recovery Homes offers a welcoming outpatient program and affordable temporary housing where clients rebuild stability and connection on their own terms — with the Colorado mountains as a daily reminder of how far they've come.</p>
+    <div class="mission-rule"></div>
+  </section>
+
+  <!-- ================= JOURNEY ================= -->
+  <section class="section" id="journey">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">How It Works</p>
+        <h2>Five steps from reaching out to thriving</h2>
+        <p>Recovery is a process, not a single decision. Here's what that process looks like with us.</p>
+      </div>
+
+      <div class="journey-grid">
+        <div class="step" data-reveal>
+          <span class="step-num">01</span>
+          <h3>Reach Out</h3>
+          <p>Call or send a message. A member of our team will listen, answer questions, and help you understand your options — no pressure, no judgment.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">02</span>
+          <h3>Assessment</h3>
+          <p>We'll talk through your history, needs, and goals to see whether our outpatient program and temporary housing are the right fit for this stage of recovery.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">03</span>
+          <h3>Move In</h3>
+          <p>Rent your temporary room and start your outpatient program alongside others who understand the work you're doing — on your own schedule, from day one.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">04</span>
+          <h3>Program &amp; Independence</h3>
+          <p>Attend outpatient programming and peer support that connects you to work, meetings, and treatment — while keeping the freedom to come and go as you choose.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">05</span>
+          <h3>Aftercare &amp; Alumni</h3>
+          <p>Recovery doesn't end at move-out. Stay connected through our alumni community as you transition to full independence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMS ================= -->
+  <section class="section section-stone" id="programs">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">What We Offer</p>
+        <h2>Support built for real, everyday recovery</h2>
+      </div>
+
+      <div class="card-grid">
+        <div class="prog-card" data-reveal>
+          <div class="prog-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5"/><path d="M6 10v9h5v-5h2v5h5v-9"/></svg>
+          </div>
+          <h3>Affordable Temporary Beds</h3>
+          <p>Affordable temporary room and bed availability with low rent, so cost isn't a barrier to recovery — with the independence to come and go as you please. Continued housing requires ongoing compliance with program protocols, under the terms of your Occupancy Agreement.</p>
+        </div>
+
+        <div class="prog-card" data-reveal>
+          <div class="prog-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.3 19c.5-3.5 3-5 5.7-5s5.2 1.5 5.7 5"/><path d="M14.5 14.3c2.1.2 3.9 1.5 4.3 4.4"/></svg>
+          </div>
+          <h3>Peer Accountability &amp; Community</h3>
+          <p>Connect with others walking the same path, supported by our QBHA-certified and CPFS-credentialed coaching staff. Peer support meetings build the connection recovery depends on.</p>
+        </div>
+
+        <div class="prog-card" data-reveal>
+          <div class="prog-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14M9.3 20V10M14.7 20V13M20 20V5"/></svg>
+          </div>
+          <h3>Life-Skills &amp; Employment</h3>
+          <p>Residents participate in workforce and/or peer support programming throughout their stay, building the skills that support lasting independence.</p>
+        </div>
+
+        <div class="prog-card" data-reveal>
+          <div class="prog-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19s-6.5-4.35-8.5-8.1C2.2 8.4 3.4 5.8 6 5.3c1.6-.3 3 .4 4 1.7 1-1.3 2.4-2 4-1.7 2.6.5 3.8 3.1 2.5 5.6C18.5 14.65 12 19 12 19Z"/></svg>
+          </div>
+          <h3>Family Support &amp; Communication</h3>
+          <p>Guidance and open communication for families who want to understand recovery and support it well.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR HOMES ================= -->
+  <section class="section" id="homes">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Our Homes</p>
+        <h2>Comfortable, affordable temporary housing in Colorado Springs &amp; Monument</h2>
+        <p>Real photos are on the way for each home below. We're also planning to expand into Denver.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="home-card" data-reveal>
+          <div class="home-photo">
+            <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+              <path d="M0,170 L0,120 L60,90 L110,130 L170,80 L230,125 L290,95 L350,128 L400,100 L400,170 Z" fill="#D9A441" opacity=".18"/>
+              <path d="M0,170 L0,140 L70,105 L140,145 L210,100 L280,150 L350,110 L400,145 L400,170 Z" fill="#0F1A16" opacity=".55"/>
+            </svg>
+            <span>Photo coming soon</span>
+          </div>
+          <div class="home-body">
+            <h3>Zermatt House</h3>
+            <p>Co-ed temporary housing with rooms available to rent at 6398 Zermatt Dr, Colorado Springs, CO 80915.</p>
+          </div>
+        </div>
+
+        <div class="home-card" data-reveal>
+          <div class="home-photo">
+            <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+              <path d="M0,170 L0,120 L60,90 L110,130 L170,80 L230,125 L290,95 L350,128 L400,100 L400,170 Z" fill="#D9A441" opacity=".18"/>
+              <path d="M0,170 L0,140 L70,105 L140,145 L210,100 L280,150 L350,110 L400,145 L400,170 Z" fill="#0F1A16" opacity=".55"/>
+            </svg>
+            <span>Photo coming soon</span>
+          </div>
+          <div class="home-body">
+            <h3>Inspiration House</h3>
+            <p>Co-ed temporary housing with rooms available to rent at 2725 Inspiration Dr, Colorado Springs, CO 80917.</p>
+          </div>
+        </div>
+
+        <div class="home-card" data-reveal>
+          <div class="home-photo">
+            <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+              <path d="M0,170 L0,120 L60,90 L110,130 L170,80 L230,125 L290,95 L350,128 L400,100 L400,170 Z" fill="#D9A441" opacity=".18"/>
+              <path d="M0,170 L0,140 L70,105 L140,145 L210,100 L280,150 L350,110 L400,145 L400,170 Z" fill="#0F1A16" opacity=".55"/>
+            </svg>
+            <span>Photo coming soon</span>
+          </div>
+          <div class="home-body">
+            <h3>Fosdick House</h3>
+            <p>Co-ed temporary housing with rooms available to rent at 1111 Fosdick Dr, Colorado Springs, CO 80909.</p>
+          </div>
+        </div>
+
+        <a href="mailto:coloradorecoveryhomesllc@gmail.com" class="home-card home-card-more" data-reveal>
+          <div class="home-photo">
+            <span class="more-plus" aria-hidden="true">+</span>
+          </div>
+          <div class="home-body">
+            <h3>Additional Properties &amp; Beds Available</h3>
+            <p>Additional temporary beds may be available — please reach out to learn more.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section class="section section-dark" id="why-us">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Standards you and your family can trust</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item" data-reveal>
+          <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 9 8l4 5 3-4 5 9H3Z"/></svg></div>
+          <h3>Rooted in Colorado</h3>
+          <p>Local homes in Colorado Springs and Monument, surrounded by the mountains that remind residents recovery is possible.</p>
+        </div>
+        <div class="why-item" data-reveal>
+          <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Qualified Care Team</h3>
+          <p>Program care coordinated by QBHA-certified and CPFS-credentialed coaches working under required clinical supervision, including a supervisory biller for Medicaid billing.</p>
+        </div>
+        <div class="why-item" data-reveal>
+          <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.3 19c.5-3.5 3-5 5.7-5s5.2 1.5 5.7 5"/><path d="M14.5 14.3c2.1.2 3.9 1.5 4.3 4.4"/></svg></div>
+          <h3>Peer-Led Community</h3>
+          <p>You're never recovering alone. Every home is a community of people who understand exactly what you're carrying.</p>
+        </div>
+        <div class="why-item" data-reveal>
+          <div class="prog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h3l1.5 4-2 2c1 2.5 2.5 4 5 5l2-2 4 1.5v3c0 1-1 2-2 2-7 0-13-6-13-13 0-1 1-2 2-2Z"/></svg></div>
+          <h3>Support Beyond the House</h3>
+          <p>Help connecting to meetings, treatment, work, and family — because recovery touches every part of life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STAFF DIRECTORY ================= -->
+  <section class="section section-stone" id="team">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Our Team</p>
+        <h2>Staff Directory — Coming Soon</h2>
+        <p>Profiles for our coaching staff and supervisory biller are on the way. Check back soon to meet the people behind Colorado Recovery Homes.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="team-card" data-reveal>
+          <div class="team-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          </div>
+          <p>Coming Soon</p>
+        </div>
+        <div class="team-card" data-reveal>
+          <div class="team-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          </div>
+          <p>Coming Soon</p>
+        </div>
+        <div class="team-card" data-reveal>
+          <div class="team-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          </div>
+          <p>Coming Soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ADMISSIONS / CTA ================= -->
+  <section class="section cta-band" id="contact">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Ready To Take The Next Step?</p>
+        <h2>Reaching out is the hardest part. You've already started.</h2>
+        <p>Reaching out is confidential and comes with no obligation. We accept Health First Colorado (Medicaid) and keep rent on our temporary beds low, so cost isn't the reason you wait.</p>
+      </div>
+      <div class="btn-row" data-reveal>
+        <a href="mailto:coloradorecoveryhomesllc@gmail.com" class="btn btn-primary">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRIVACY NOTICE ================= -->
+  <section class="section section-stone" id="privacy">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">Legal</p>
+        <h2>Notice of Privacy Practices</h2>
+      </div>
+
+      <div class="privacy-doc" data-reveal>
+        <p class="privacy-date">Effective date: July 29, 2026</p>
+
+        <p class="privacy-required">
+          THIS NOTICE DESCRIBES HOW MEDICAL AND SUBSTANCE USE DISORDER INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED, AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.
+        </p>
+
+        <h3>About This Notice</h3>
+        <p>Colorado Recovery Homes LLC ("Colorado Recovery Homes," "we," "us," or "our") provides supervised behavioral health and peer support services through our QBHA-certified and CPFS-credentialed coaching staff (CPFS credentials are administered through the Colorado Providers Association), operating under required clinical supervision, through our outpatient program and temporary housing serving Colorado Springs and Monument, Colorado. We bill Health First Colorado (Colorado Medicaid) for eligible services. Because we create and maintain health information about you, we are required by law to protect its privacy and to provide this notice describing our legal duties, our privacy practices, and your rights.</p>
+
+        <h3>Scope of This Notice</h3>
+        <p>This notice applies to the health information we create or receive through your participation in our outpatient coaching and peer support program. It does not apply to matters arising solely from your separate Occupancy Agreement with us, such as fees or the terms of your temporary bed — those are governed by that agreement, not this notice. You do not need a bed with us to participate in our outpatient program. Continued occupancy of a bed, however, requires ongoing compliance with our program protocols, and a violation of those protocols may result in removal from housing under the terms of your Occupancy Agreement.</p>
+
+        <h3>How We May Use and Disclose Your Health Information</h3>
+        <p><strong>For treatment.</strong> We may use and disclose your health information to provide, coordinate, and manage the coaching and peer support services you receive, and to coordinate with other providers involved in your care.</p>
+        <p><strong>For payment.</strong> We may use and disclose your health information to bill and obtain payment from Health First Colorado (Medicaid) for services we provide, including through our supervisory biller.</p>
+        <p><strong>For health care operations.</strong> We may use your information for activities such as quality improvement, staff supervision and training, and licensing or compliance reviews.</p>
+        <p><strong>For housing eligibility.</strong> Because continued occupancy of a temporary bed with us requires ongoing compliance with our program protocols, we may use information about your program participation and compliance to determine your continued eligibility for housing under your Occupancy Agreement.</p>
+        <p><strong>Other permitted or required uses.</strong> In limited situations, and only as allowed by law, we may use or disclose your information without your written permission — for example, when required by law, to prevent a serious threat to health or safety, in response to a valid court order, or to a health oversight agency conducting an authorized review. Outside situations like these, we will ask for your written consent before sharing your information.</p>
+
+        <h3>Special Protections for Substance Use Disorder Records (42 CFR Part 2)</h3>
+        <p>Because we support clients in substance use recovery and participate in Medicaid, records that would identify you as someone who has sought or received substance use disorder services may be subject to additional federal confidentiality protections under 42 CFR Part 2, on top of HIPAA. Under Part 2, we generally may not disclose information that would identify you in this way unless you provide specific written consent, or in narrow circumstances such as a medical emergency, a court order, or as otherwise permitted by law. Information protected under Part 2 may not be used to initiate or substantiate criminal charges against you, or to conduct a criminal investigation of you, without your consent or an appropriate court order.</p>
+        <p>These Part 2 protections are narrower than, and take priority over, the general HIPAA disclosure examples described above. For instance, the "health oversight agency" and "required by law" examples above do not by themselves permit disclosure of information that would identify you as someone who has sought or received substance use disorder services — a specific Part 2 exception, your written consent, or a qualifying court order is required first.</p>
+
+        <h3>Uses That Require Your Written Authorization</h3>
+        <p>Other than as described above, we will obtain your written authorization before using or disclosing your health information for any other purpose — including most disclosures of substance use disorder records, marketing communications, or the sale of your health information. You may revoke a written authorization at any time, except to the extent we have already acted on it.</p>
+
+        <h3>Your Rights</h3>
+        <ul>
+          <li>Request a copy of your health record</li>
+          <li>Request that we amend your record if you believe something is incorrect or incomplete</li>
+          <li>Request an accounting of certain disclosures we've made of your information</li>
+          <li>Request restrictions on certain uses or disclosures, which we are not always required to agree to</li>
+          <li>Request confidential communications by an alternative means or at an alternative location</li>
+          <li>Receive a paper copy of this notice at any time, even if you've agreed to receive it electronically</li>
+          <li>File a complaint if you believe your privacy rights have been violated, without fear of retaliation</li>
+        </ul>
+
+        <h3>Our Responsibilities</h3>
+        <p>We are required by law to maintain the privacy of your health information, provide this notice of our legal duties and privacy practices, notify you if a breach occurs that may have compromised your information, and abide by the terms of the notice currently in effect.</p>
+
+        <h3>Changes to This Notice</h3>
+        <p>We reserve the right to change this notice and to make a revised notice effective for health information we already have as well as information we receive in the future. Updated notices will be posted here and made available at each of our homes.</p>
+
+        <h3>Questions or Complaints</h3>
+        <p>If you have questions about this notice or want to exercise any of the rights above, please contact:</p>
+        <div class="privacy-contact">
+          <p>Matthew Mino</p>
+          <p>Colorado Recovery Homes LLC</p>
+          <p>Phone: (303) 919-9559</p>
+          <p>Email: coloradorecoveryhomesllc@gmail.com</p>
+        </div>
+        <p>You may also file a complaint with the U.S. Department of Health and Human Services, Office for Civil Rights, without fear of retaliation for doing so.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand" aria-label="Colorado Recovery Homes, home">
+          <svg class="brand-mark" viewBox="0 0 500 500" role="img" aria-label="Colorado Recovery Homes mark">
+            <g transform="translate(250,250)">
+              <circle r="205" fill="none" stroke="#F0C878" stroke-width="14"/>
+              <circle cy="-55" r="52" fill="#D9A441"/>
+              <path d="M -160,120 L -80,-40 L 0,30 L 80,-60 L 160,120 Z" fill="#F0C878"/>
+              <path d="M -34,120 L -34,55 L 0,25 L 34,55 L 34,120 Z" fill="#141F1B"/>
+            </g>
+          </svg>
+          <span class="brand-word">COLORADO RECOVERY HOMES</span>
+        </a>
+        <p class="footer-tagline">An outpatient recovery program in Colorado Springs and Monument, with affordable temporary rooms to rent — a safe place to rebuild, one day at a time.</p>
+      </div>
+
+      <div class="footer">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#journey">The Journey</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#homes">Our Homes</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#privacy">Privacy Practices</a></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>(303) 919-9559</li>
+          <li>coloradorecoveryhomesllc@gmail.com</li>
+          <li>Serving Colorado Springs &amp; Monument, CO</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <h4>In Crisis?</h4>
+        <div class="crisis-box">
+          If you or someone you love is in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline), available 24/7, or call SAMHSA's National Helpline at <strong>1-800-662-4357</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Colorado Recovery Homes LLC. All rights reserved.</span>
+      <span><a href="#privacy" style="text-decoration:underline; text-underline-offset:3px;">Notice of Privacy Practices</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('siteNav');
+  const setNavState = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', setNavState, { passive: true });
+  setNavState();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('is-active', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.classList.remove('is-active');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+</script>
+
+</body>
+</html>

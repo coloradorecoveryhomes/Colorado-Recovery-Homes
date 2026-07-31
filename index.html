@@ -199,13 +199,16 @@
 
   /* ================= MISSION STRIP ================= */
   .mission{ padding: 4.5rem 0; text-align:center; }
-  .mission .eyebrow{ }
+  .mission-mark{
+    display:block; font-family: var(--font-display); font-size: 3.75rem; font-weight:600;
+    color: var(--gold-500); line-height:1; margin-bottom: .25rem; opacity:.9;
+  }
   .mission p{
     font-family: var(--font-display); font-weight:400; font-style:italic;
-    font-size: clamp(1.2rem, 2.4vw, 1.55rem); line-height:1.5; color: var(--pine-800);
-    max-width: 46ch; margin: 0 auto;
+    font-size: clamp(1.35rem, 2.8vw, 1.75rem); line-height:1.55; color: var(--pine-800);
+    max-width: 48ch; margin: 0 auto;
   }
-  .mission-rule{ width:64px; height:3px; background:var(--gold-500); margin: 1.6rem auto 0; border-radius:2px; }
+  .mission-rule{ width:64px; height:3px; background:var(--gold-500); margin: 1.8rem auto 0; border-radius:2px; }
 
   /* ================= JOURNEY ================= */
   .journey-grid{
@@ -423,7 +426,7 @@
 
   <!-- ================= MISSION ================= -->
   <section class="mission container" data-reveal>
-    <p class="eyebrow">Our Mission</p>
+    <span class="mission-mark" aria-hidden="true">&#8220;</span>
     <p>Recovery isn't something you have to do alone. We offer an outpatient program and a sober, affordable place to stay while you find your footing — no pressure, just real support, at your own pace. And every day, the Colorado mountains are right there to remind you how far you can go.</p>
     <div class="mission-rule"></div>
   </section>
